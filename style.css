@@ -351,3 +351,161 @@ header::after {
         right: 15px;
     }
 }
+
+
+/* Galerie */
+
+.galerie {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.galerie-continut {
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+}
+
+.galerie-continut h3 {
+    font-size: 1rem;
+    letter-spacing: 2px;
+    color: #ff6900;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.galerie-continut h2 {
+    font-size: 2rem;
+    font-family: Georgia, serif;
+    font-weight: normal;
+    line-height: 1.3;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.galerie-continut h2 span {
+    color: #ff6900;
+}
+
+.galerie-descriere {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.8;
+}
+
+
+.galerie-simplu {
+    display: flex;
+    justify-content: center;
+    gap: 20px; 
+    flex-wrap: wrap; 
+}
+
+.galerie-simplu img {
+    width: 550px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.galerie-centru {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; 
+}
+
+.galerie-centru img {
+    width: 550px;      
+    height: 380px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+
+
+/*  Sectiunea echipa  */
+
+.echipa {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.echipa-titlu {
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+}
+
+.echipa-titlu h3 {
+    font-size: 1rem;
+    letter-spacing: 2px;
+    color: #499034; 
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.echipa-titlu h2 {
+    font-size: 2rem;
+    line-height: 1.3;
+    color: #fff;
+    font-family: Georgia, serif;
+    font-weight: normal;
+}
+
+.echipa-titlu h2 span {
+    color: #499034;
+}
+
+/* grila care aranjeaza cardurile pe pagina */
+.echipa-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px; 
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* casuta individuală pentru fiecare membru */
+.card-membru {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #32113D; 
+    border-radius: 16px;
+    padding: 12px;
+    width: 220px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.card-membru:hover {
+    transform: translateY(-5px); 
+}
+
+.card-membru img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #499034;
+}
+
+
+.card-membru h4 {
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+
+
+.linie-separatoare {
+    width: 80%;         
+    max-width: 1000px;
+    height: 2px;           
+    background-color: #32113D; 
+    margin: 40px auto;    
+    box-shadow: 0 0 15px 2px rgba(50, 17, 61, 0.6); 
+    border: none;
+}
