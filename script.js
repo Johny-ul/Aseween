@@ -38,10 +38,10 @@ document.getElementById('registration-form').addEventListener('submit', async fu
   }
 
   const dateFormular = {
-    nume: nume,
-    email: email,
-    evenimente: evenimenteBifate.join(', ')
-  };
+  nume: nume,
+  email: email,
+  evenimente: evenimenteBifate
+};
 
   try {
     const response = await fetch('http://localhost:3000/adauga', {
