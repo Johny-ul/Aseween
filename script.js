@@ -1,72 +1,73 @@
-let linkuri = document.querySelectorAll(".linkuri a");
+document.getElementById('registration-form').addEventListener('submit', async function (e) {
+  e.preventDefault();
 
-linkuri.forEach(function(link) {
+  const nume = document.getElementById('nume').value.trim();
+  const email = document.getElementById('email').value.trim();
 
-    link.addEventListener("click", function() {
+  
+  const evenimenteBifate = Array.from(
+    document.querySelectorAll('input[name="evenimente"]:checked')
+  ).map(cb => cb.value);
 
-        linkuri.forEach(function(element) {
-            element.classList.remove("activ");
-        });
+ 
+  if (!nume) {
+    alert('Te rugăm să introduci numele complet.');
+    return;
+  }
 
-        link.classList.add("activ");
+  const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!regexEmail.test(email)) {
+    alert('Te rugăm să introduci o adresă de email validă (ex: nume@domeniu.com).');
+    return;
+  }
 
+  if (evenimenteBifate.length === 0) {
+    alert('Te rugăm să selectezi cel puțin un eveniment!');
+    return;
+  }
+
+  
+  const btnSubmit = e.target.querySelector('button[type="submit"]');
+  const textOriginalBtn = btnSubmit ? btnSubmit.innerText : 'Trimite';
+
+  
+  if (btnSubmit) {
+    btnSubmit.disabled = true;
+    btnSubmit.innerText = 'Se trimite...';
+  }
+
+  const dateFormular = {
+    nume: nume,
+    email: email,
+    evenimente: evenimenteBifate.join(', ')
+  };
+
+  try {
+    const response = await fetch('http://localhost:3000/adauga', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(dateFormular)
     });
 
-});
+    const rezultat = await response.json();
 
-let butonSus = document.getElementById("buton-sus");
-
-function verificaScroll() {
-
-    if (window.scrollY > 300) {
-        butonSus.classList.add("vizibil");
+    if (response.ok) {
+      alert('Înregistrare reușită!'); //Esti smecher 
+      document.getElementById('registration-form').reset();
     } else {
-        butonSus.classList.remove("vizibil");
+      
+      alert('Eroare: ' + rezultat.mesaj);
     }
-
-}
-
-window.addEventListener("scroll", verificaScroll);
-
-verificaScroll();
-
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('registration-form');
-  const mesajElement = document.getElementById('mesaj');
-
-  if (form) {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      const nume = document.getElementById('nume').value;
-      const email = document.getElementById('email').value;
-
-      const checkboxes = document.querySelectorAll('input[name="evenimente"]:checked');
-      const evenimente = Array.from(checkboxes).map(cb => cb.value);
-
-      try {
-        const response = await fetch('http://localhost:3000/adauga', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ nume, email, evenimente })
-        });
-
-        const result = await response.json();
-
-        if (result.status === 'succes') {
-          mesajElement.innerText = '✅ ' + result.mesaj;
-          mesajElement.style.color = '#00ff88';
-          form.reset();
-        } else {
-          mesajElement.innerText = '❌ Eroare: ' + result.mesaj;
-          mesajElement.style.color = '#ff4444';
-        }
-      } catch (error) {
-        mesajElement.innerText = '❌ Nu s-a putut conecta la server. Verifică dacă server.js rulează!';
-        mesajElement.style.color = '#ff4444';
-      }
-    });
+  } catch (error) {
+    console.error('Eroare de rețea:', error);
+    alert('Nu s-a putut conecta la server. Verifică dacă server.js rulează!');
+  } finally {
+    
+    if (btnSubmit) {
+      btnSubmit.disabled = false;
+      btnSubmit.innerText = textOriginalBtn;
+    }
   }
 });
