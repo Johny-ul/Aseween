@@ -241,6 +241,23 @@ header::after {
 .despre-imagine img:hover {
     transform: scale(1.04);
 }
+.imgeven {
+    display: block !important;
+    width: 300px !important;
+    height: auto !important;
+    transition: transform 0.3s;
+}
+
+
+.imagine.eveniment img {
+    display: block;
+    width: 60%;
+    max-width: 350px;
+    margin: 0 auto; 
+    height: auto;
+    transition: transform 0.3s;
+}
+
 
 #buton-sus {
     position: fixed;
@@ -549,9 +566,6 @@ header::after {
 
 
 
-
-   
-
 /* LINIE SEPARATOARE */
 
 .linie-separatoare {
@@ -562,4 +576,617 @@ header::after {
     margin: 40px auto;
     box-shadow: 0 0 15px 2px rgba(50, 17, 61, 0.6);
     border: none;
+}
+
+/*tot ce tine de formular */
+.registration-section {
+    background-color: #000;
+    padding: 85px 8%;
+}
+
+.registration-continut-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    max-width: 1300px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.registration-stanga {
+    width: 55%;
+}
+
+.registration-dreapta {
+    width: 40%;
+}
+
+.registration-dreapta img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    border: 1px solid #32113D; 
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7);
+    transition: transform 0.3s ease;
+}
+
+.registration-dreapta img:hover {
+    transform: scale(1.02);
+}
+
+
+.registration-stanga h1 {
+    color: #499034;
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.registration-stanga h2 {
+    color: #f5eee8;
+    font-family: Georgia, serif;
+    font-size: 36px;
+    line-height: 1.2;
+    font-weight: normal;
+    margin-bottom: 15px;
+}
+
+.registration-stanga > p {
+    color: #ccc5c5;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+#registration-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background: #080808;
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid #32113D;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7);
+}
+
+#registration-form label {
+    color: #f5eee8;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#registration-form input[type="text"],
+#registration-form input[type="email"] {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #000;
+    border: 1px solid #32113D;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#registration-form input:focus {
+    border-color: #499034;
+    box-shadow: 0 0 12px rgba(73, 144, 52, 0.4);
+}
+
+#registration-form h3 {
+    color: #f5eee8;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-family: Arial, sans-serif;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.checkbox-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ccc5c5;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.checkbox-option input[type="checkbox"] {
+    accent-color: #499034;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+#registration-form button[type="submit"] {
+    background-color: #3b7429;
+    color: white;
+    border: 1px solid #3b7429;
+    padding: 14px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+    text-transform: uppercase;
+    width: 100%;
+    margin-top: 5px;
+}
+
+#registration-form button[type="submit"]:hover {
+    background-color: #499034;
+    border-color: #499034;
+    box-shadow: 0 0 18px rgba(73, 144, 52, 0.5);
+    transform: translateY(-2px);
+}
+
+#mesaj {
+    color: #ff6262;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+
+@media (max-width: 900px) {
+    .registration-continut-flex {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .registration-stanga,
+    .registration-dreapta {
+        width: 100%;
+    }
+}
+.card-membru {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #32113D;
+    border-radius: 16px;
+    padding: 12px;
+    width: 220px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+.eveniment123 {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #32113D;
+    border-radius: 16px;
+    padding: 12px;
+    width: 220px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+.imgeven {
+    width: 150px !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+}
+
+
+
+/* SPONSORI */
+
+.sponsors-section {
+    background: #080808;
+    padding: 90px 8%;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 42px;
+    color: #ff7518;
+    margin-bottom: 15px;
+    letter-spacing: 3px;
+}
+
+.section-description {
+    color: #bbb;
+    font-size: 17px;
+    margin-bottom: 45px;
+}
+
+/* SPONSOR PRINCIPAL */
+
+.main-sponsor {
+    max-width: 550px;
+    margin: 0 auto 45px;
+    padding: 35px;
+    background: #160e09;
+    border: 2px solid #ff7518;
+    border-radius: 15px;
+}
+
+.main-sponsor h3 {
+    color: #ff7518;
+    font-size: 16px;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+.main-sponsor img {
+    max-width: 260px;
+    max-height: 150px;
+    width: 100%;
+    object-fit: contain;
+}
+
+/* RESTUL SPONSORILOR */
+
+.sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.sponsor-card {
+    background: #171717;
+    border: 1px solid #333;
+    border-radius: 12px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    transition: 0.3s;
+}
+
+.sponsor-card:hover {
+    border-color: #ff7518;
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(255, 117, 24, 0.2);
+}
+
+.sponsor-card img {
+    max-width: 85%;
+    max-height: 95px;
+    object-fit: contain;
+}
+
+/* CONTACT */
+
+.contact-section {
+    background: #080808;
+    padding: 80px 20px 100px;
+    text-align: center;
+}
+
+.contact-section .section-title {
+    font-size: 45px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: #ff7518;
+    margin-bottom: 25px;
+}
+
+.contact-description {
+    max-width: 600px;
+    margin: 0 auto 40px;
+    color: #ccc;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+/* BUTOANE */
+
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.contact-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
+    min-width: 200px;
+    padding: 17px 25px;
+
+    background: #111;
+    border: 2px solid #ff7518;
+    border-radius: 12px;
+
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+
+    transition: 0.3s ease;
+}
+
+.contact-button i {
+    font-size: 24px;
+    color: #ff7518;
+}
+
+.contact-button:hover {
+    background: #ff7518;
+    color: black;
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(255, 117, 24, 0.25);
+}
+
+.contact-button:hover i {
+    color: black;
+}
+
+/* ADRESA DE EMAIL */
+
+.contact-email {
+    margin-top: 30px;
+    font-size: 16px;
+    color: #aaa;
+}
+
+.contact-email a {
+    color: #ff7518;
+    text-decoration: none;
+}
+
+.contact-email a:hover {
+    text-decoration: underline;
+}
+
+/* TELEFON */
+
+@media (max-width: 500px) {
+    .contact-section .section-title {
+        font-size: 32px;
+    }
+
+    .contact-description {
+        font-size: 15px;
+    }
+
+    .contact-button {
+        min-width: 145px;
+        padding: 14px;
+        font-size: 16px;
+    }
+
+    .contact-button i {
+        font-size: 20px;
+    }
+}
+
+
+
+/* 
+   SECTIUNEA SPONSORI
+ */
+
+.sponsors-section {
+    background: #080808;
+    padding: 80px 5%;
+    text-align: center;
+    scroll-margin-top: 85px;
+}
+
+/* TITLUL SPONSORI */
+
+.sponsors-section .section-title {
+    font-size: 42px;
+    font-weight: 800;
+    color: #ff7518;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+}
+
+.sponsors-section .section-description {
+    color: #aaa;
+    font-size: 17px;
+    margin-bottom: 45px;
+    line-height: 1.6;
+}
+
+/* 
+   SPONSOR PRINCIPAL - ONE CLUB
+ */
+
+.main-sponsor {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    height: 350px;
+
+    margin: 0 auto 35px;
+    padding: 0;
+
+    background: #111;
+    border: 2px solid #ff7518;
+    border-radius: 18px;
+
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+/* IMAGINE ONE CLUB */
+
+.main-sponsor img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    max-width: none;
+    max-height: none;
+
+    object-fit: cover;
+    object-position: center;
+
+    margin: 0;
+    padding: 0;
+
+    transition: transform 0.3s ease;
+}
+
+/* TITLU SPONSOR PRINCIPAL */
+
+.main-sponsor h3 {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+
+    transform: translateX(-50%);
+    z-index: 2;
+
+    margin: 0;
+    padding: 10px 20px;
+
+    width: max-content;
+    max-width: 90%;
+
+    background: rgba(0, 0, 0, 0.8);
+    color: #ff7518;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+/* HOVER ONE CLUB */
+
+.main-sponsor:hover {
+    border-color: #ff9a45;
+
+    box-shadow:
+        0 0 30px rgba(255, 117, 24, 0.25);
+}
+
+.main-sponsor:hover img {
+    transform: scale(1.04);
+}
+
+/* 
+   RESTUL SPONSORILOR
+ */
+
+.sponsors-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+
+    width: 100%;
+    max-width: 1150px;
+
+    margin: 0 auto;
+}
+
+/* CARD SPONSOR */
+
+.sponsor-card {
+    position: relative;
+
+    width: 100%;
+    height: 210px;
+
+    margin: 0;
+    padding: 0;
+
+    background: #171717;
+
+    border: 1px solid #333;
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    transition: 0.3s ease;
+}
+
+/* IMAGINEA ACOPERA TOT CARDUL */
+
+.sponsor-card img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    max-width: none;
+    max-height: none;
+
+    object-fit: cover;
+    object-position: center;
+
+    margin: 0;
+    padding: 0;
+
+    transition: transform 0.3s ease;
+}
+
+/* EFECT HOVER */
+
+.sponsor-card:hover {
+    transform: translateY(-6px);
+
+    border-color: #ff7518;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(255, 117, 24, 0.15);
+}
+
+.sponsor-card:hover img {
+    transform: scale(1.04);
+}
+
+
+
+/*
+   RESPONSIVE - TELEFON
+ */
+
+@media (max-width: 500px) {
+
+    .sponsors-section {
+        padding: 60px 15px;
+    }
+
+    .sponsors-section .section-title {
+        font-size: 30px;
+    }
+
+    .sponsors-section .section-description {
+        font-size: 14px;
+        margin-bottom: 30px;
+    }
+
+    .main-sponsor {
+        height: 230px;
+        margin-bottom: 25px;
+    }
+
+    .main-sponsor h3 {
+        font-size: 12px;
+        letter-spacing: 1px;
+        padding: 8px 12px;
+    }
+
+    .sponsors-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .sponsor-card {
+        height: 125px;
+        border-radius: 10px;
+    }
 }
