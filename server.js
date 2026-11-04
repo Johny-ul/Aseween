@@ -19,6 +19,8 @@ const db = new sqlite3.Database('./baza_de_date.db', (err) => {
 
 // Ruta POST: Salvează înscrierea din formular cu verificare de duplicat
 app.post('/adauga', (req, res) => {
+  console.log('--- DATE PRIMITE DE LA FORMULAR ---:', req.body);
+
   const { nume, email, evenimente } = req.body;
 
   // 1. Validare câmpuri goale
@@ -26,7 +28,7 @@ app.post('/adauga', (req, res) => {
     return res.status(400).json({ mesaj: 'Toate câmpurile sunt obligatorii!' });
   }
 
-  // 2. Normalizare email (fără spații libere și doar litere mici)
+  // 2. Normalizare email (fără spații libere și doar cu litere mici)
   const emailCurat = email.trim().toLowerCase();
 
   // 3. Validare format email
@@ -35,7 +37,7 @@ app.post('/adauga', (req, res) => {
     return res.status(400).json({ mesaj: 'Adresa de email este invalidă!' });
   }
 
-  // 4. Verificare duplicat în baza de date
+  // 4. Verificare duplicat în baza de date (insensibil la litere mari/mici)
   db.get(`SELECT id FROM inscrieri WHERE LOWER(email) = ?`, [emailCurat], (err, row) => {
     if (err) {
       console.error('Eroare la căutare email:', err.message);

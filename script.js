@@ -27,9 +27,9 @@ document.getElementById('registration-form').addEventListener('submit', async fu
     return;
   }
 
-  // Feedback vizual pe buton
+  // Feedback vizual pe buton pe durata cererii
   const btnSubmit = e.target.querySelector('button[type="submit"]');
-  const textOriginalBtn = btnSubmit ? btnSubmit.innerText : 'Trimite';
+  const textOriginalBtn = btnSubmit ? btnSubmit.innerText : 'TRIMITE ÎNSCRIEREA';
 
   if (btnSubmit) {
     btnSubmit.disabled = true;
