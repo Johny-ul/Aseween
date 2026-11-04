@@ -1,4 +1,3 @@
-
 * {
     box-sizing: border-box;
 }
@@ -19,6 +18,8 @@ a {
     text-decoration: none;
     color: inherit;
 }
+
+/* ===== NAVIGARE ===== */
 
 nav {
     background-color: #080808;
@@ -94,6 +95,8 @@ nav {
     width: 100%;
     height: 100%;
 }
+
+/* ===== BANNER ===== */
 
 header {
     position: relative;
@@ -171,6 +174,8 @@ header::after {
     color: black;
 }
 
+/* ===== SECȚIUNEA DESPRE (folosită și la Evenimente) ===== */
+
 .despre {
     background-color: #000;
     padding: 85px 8%;
@@ -241,23 +246,48 @@ header::after {
 .despre-imagine img:hover {
     transform: scale(1.04);
 }
+
+/* ===== SECȚIUNEA EVENIMENT ===== */
+
+/* Colaj: o poză mare sus și două una lângă alta dedesubt */
 .imgeven {
-    display: block !important;
-    width: 300px !important;
-    height: auto !important;
-    transition: transform 0.3s;
+    width: 40%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
 }
 
-
-.imagine.eveniment img {
+.imgeven img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
     display: block;
-    width: 60%;
-    max-width: 350px;
-    margin: 0 auto; 
-    height: auto;
-    transition: transform 0.3s;
+    border-radius: 12px;
+    border: 1px solid #32113D;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
+.imgeven img:first-child {
+    grid-column: 1 / -1;
+    height: 270px;
+}
+
+.imgeven img:hover {
+    transform: scale(1.03);
+    border-color: #e50914;
+    box-shadow: 0 0 22px rgba(229, 9, 20, 0.35);
+}
+
+#evenimente .despre-text strong {
+    color: #ff6262;
+}
+
+#evenimente .despre-text p {
+    margin-bottom: 16px;
+}
+
+/* ===== BUTON ÎNAPOI SUS ===== */
 
 #buton-sus {
     position: fixed;
@@ -295,83 +325,7 @@ header::after {
     box-shadow: 0 0 25px rgba(229, 9, 20, 0.8);
 }
 
-@media (max-width: 950px) {
-    .nav-interior {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .linkuri {
-        order: 3;
-        width: 100%;
-        gap: 15px;
-    }
-
-    .despre {
-        gap: 30px;
-        padding: 65px 5%;
-    }
-
-    .despre h2 {
-        font-size: 32px;
-    }
-}
-
-@media (max-width: 750px) {
-    .despre {
-        flex-direction: column;
-        padding: 60px 25px;
-        gap: 35px;
-    }
-
-    .despre-text,
-    .despre-imagine {
-        width: 100%;
-    }
-
-    .despre h2 {
-        font-size: 30px;
-    }
-
-    .despre p {
-        font-size: 14px;
-    }
-
-    .butoane-banner {
-        position: relative;
-        bottom: auto;
-        left: auto;
-        transform: none;
-        margin: 0 auto;
-        padding: 20px 0;
-        flex-wrap: wrap;
-    }
-}
-
-@media (max-width: 500px) {
-    .nav-interior {
-        padding: 12px;
-        gap: 15px;
-    }
-
-    .linkuri {
-        gap: 10px 15px;
-    }
-
-    .linkuri a {
-        font-size: 10px;
-    }
-
-    #buton-sus {
-        width: 55px;
-        height: 55px;
-        bottom: 15px;
-        right: 15px;
-    }
-}
-
-
-/* GALERIE */
+/* ===== GALERIE ===== */
 
 .galerie {
     padding: 80px 20px;
@@ -441,8 +395,7 @@ header::after {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
-
-/* SECTIUNEA ECHIPA */
+/* ===== ECHIPA ===== */
 
 .echipa {
     padding: 80px 20px;
@@ -513,9 +466,7 @@ header::after {
     margin-bottom: 5px;
 }
 
-
-/* FOTOGRAFIA LUI LUCA */
-
+/* Fotografia lui Luca */
 
 .cadru-luca {
     width: 100%;
@@ -539,7 +490,7 @@ header::after {
     margin: 0;
 }
 
-
+/* Fotografia lui Leo */
 
 .cadru-leo {
     width: 100%;
@@ -563,10 +514,7 @@ header::after {
     margin: 0;
 }
 
-
-
-
-/* LINIE SEPARATOARE */
+/* ===== LINIE SEPARATOARE ===== */
 
 .linie-separatoare {
     width: 80%;
@@ -578,7 +526,8 @@ header::after {
     border: none;
 }
 
-/*tot ce tine de formular */
+/* ===== FORMULAR ÎNSCRIERI ===== */
+
 .registration-section {
     background-color: #000;
     padding: 85px 8%;
@@ -607,7 +556,7 @@ header::after {
     height: auto;
     display: block;
     border-radius: 12px;
-    border: 1px solid #32113D; 
+    border: 1px solid #32113D;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7);
     transition: transform 0.3s ease;
 }
@@ -615,7 +564,6 @@ header::after {
 .registration-dreapta img:hover {
     transform: scale(1.02);
 }
-
 
 .registration-stanga h1 {
     color: #499034;
@@ -735,52 +683,13 @@ header::after {
     margin-top: 5px;
 }
 
-
-@media (max-width: 900px) {
-    .registration-continut-flex {
-        flex-direction: column;
-        gap: 30px;
-    }
-    
-    .registration-stanga,
-    .registration-dreapta {
-        width: 100%;
-    }
-}
-.card-membru {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid #32113D;
-    border-radius: 16px;
-    padding: 12px;
-    width: 220px;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease;
-}
-.eveniment123 {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid #32113D;
-    border-radius: 16px;
-    padding: 12px;
-    width: 220px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease;
-}
-.imgeven {
-    width: 150px !important;
-    height: auto !important;
-    display: block !important;
-    margin: 0 auto !important;
-}
-
-
-
-/* SPONSORI */
+/* ===== SPONSORI ===== */
 
 .sponsors-section {
     background: #080808;
-    padding: 90px 8%;
+    padding: 80px 5%;
     text-align: center;
+    scroll-margin-top: 85px;
 }
 
 .section-title {
@@ -790,72 +699,127 @@ header::after {
     letter-spacing: 3px;
 }
 
-.section-description {
-    color: #bbb;
+.sponsors-section .section-title {
+    font-size: 42px;
+    font-weight: 800;
+    color: #ff7518;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+}
+
+.sponsors-section .section-description {
+    color: #aaa;
     font-size: 17px;
     margin-bottom: 45px;
+    line-height: 1.6;
 }
 
-/* SPONSOR PRINCIPAL */
+/* Sponsor principal - Club ONE */
 
 .main-sponsor {
-    max-width: 550px;
-    margin: 0 auto 45px;
-    padding: 35px;
-    background: #160e09;
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    height: 350px;
+    margin: 0 auto 35px;
+    padding: 0;
+    background: #111;
     border: 2px solid #ff7518;
-    border-radius: 15px;
-}
-
-.main-sponsor h3 {
-    color: #ff7518;
-    font-size: 16px;
-    letter-spacing: 3px;
-    margin-bottom: 25px;
+    border-radius: 18px;
+    overflow: hidden;
+    transition: 0.3s ease;
 }
 
 .main-sponsor img {
-    max-width: 260px;
-    max-height: 150px;
+    display: block;
     width: 100%;
-    object-fit: contain;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    object-fit: cover;
+    object-position: center;
+    margin: 0;
+    padding: 0;
+    transition: transform 0.3s ease;
 }
 
-/* RESTUL SPONSORILOR */
+.main-sponsor h3 {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    margin: 0;
+    padding: 10px 20px;
+    width: max-content;
+    max-width: 90%;
+    background: rgba(0, 0, 0, 0.8);
+    color: #ff7518;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.main-sponsor:hover {
+    border-color: #ff9a45;
+    box-shadow: 0 0 30px rgba(255, 117, 24, 0.25);
+}
+
+.main-sponsor:hover img {
+    transform: scale(1.04);
+}
+
+/* Restul sponsorilor */
 
 .sponsors-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    max-width: 1000px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1150px;
     margin: 0 auto;
 }
 
 .sponsor-card {
+    position: relative;
+    width: 100%;
+    height: 210px;
+    margin: 0;
+    padding: 0;
     background: #171717;
     border: 1px solid #333;
-    border-radius: 12px;
-    height: 160px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 25px;
-    transition: 0.3s;
-}
-
-.sponsor-card:hover {
-    border-color: #ff7518;
-    transform: translateY(-5px);
-    box-shadow: 0 0 20px rgba(255, 117, 24, 0.2);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s ease;
 }
 
 .sponsor-card img {
-    max-width: 85%;
-    max-height: 95px;
-    object-fit: contain;
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    object-fit: cover;
+    object-position: center;
+    margin: 0;
+    padding: 0;
+    transition: transform 0.3s ease;
 }
 
-/* CONTACT */
+.sponsor-card:hover {
+    transform: translateY(-6px);
+    border-color: #ff7518;
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(255, 117, 24, 0.15);
+}
+
+.sponsor-card:hover img {
+    transform: scale(1.04);
+}
+
+/* ===== CONTACT ===== */
 
 .contact-section {
     background: #080808;
@@ -879,8 +843,6 @@ header::after {
     line-height: 1.7;
 }
 
-/* BUTOANE */
-
 .contact-buttons {
     display: flex;
     justify-content: center;
@@ -894,18 +856,14 @@ header::after {
     justify-content: center;
     align-items: center;
     gap: 12px;
-
     min-width: 200px;
     padding: 17px 25px;
-
     background: #111;
     border: 2px solid #ff7518;
     border-radius: 12px;
-
     color: white;
     font-size: 18px;
     text-decoration: none;
-
     transition: 0.3s ease;
 }
 
@@ -925,8 +883,6 @@ header::after {
     color: black;
 }
 
-/* ADRESA DE EMAIL */
-
 .contact-email {
     margin-top: 30px;
     font-size: 16px;
@@ -942,219 +898,260 @@ header::after {
     text-decoration: underline;
 }
 
-/* TELEFON */
+/* ===== FOOTER ===== */
 
-@media (max-width: 500px) {
-    .contact-section .section-title {
-        font-size: 32px;
-    }
-
-    .contact-description {
-        font-size: 15px;
-    }
-
-    .contact-button {
-        min-width: 145px;
-        padding: 14px;
-        font-size: 16px;
-    }
-
-    .contact-button i {
-        font-size: 20px;
-    }
+.footer {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 0% 20%, rgba(180, 0, 0, 0.25), transparent 40%),
+        radial-gradient(ellipse at 100% 80%, rgba(255, 75, 0, 0.20), transparent 40%),
+        #080404;
+    color: white;
+    padding: 45px 8% 20px;
+    margin-top: 40px;
+    font-family: Arial, sans-serif;
 }
 
-
-
-/* 
-   SECTIUNEA SPONSORI
- */
-
-.sponsors-section {
-    background: #080808;
-    padding: 80px 5%;
+.footer-title {
     text-align: center;
-    scroll-margin-top: 85px;
+    font-size: 55px;
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 60px;
+    letter-spacing: 2px;
 }
 
-/* TITLUL SPONSORI */
+.afterlife {
+    color: #e52b12;
+}
 
-.sponsors-section .section-title {
-    font-size: 42px;
-    font-weight: 800;
-    color: #ff7518;
-    letter-spacing: 4px;
+.footer-content {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    max-width: 1100px;
+    margin: auto;
+    padding-bottom: 45px;
+}
+
+.footer-about {
+    width: 45%;
+}
+
+.footer-about h2,
+.footer-contact h2 {
+    font-size: 30px;
     margin-bottom: 15px;
 }
 
-.sponsors-section .section-description {
-    color: #aaa;
-    font-size: 17px;
-    margin-bottom: 45px;
-    line-height: 1.6;
+.footer-about p {
+    color: #c5c5c5;
+    font-size: 18px;
+    line-height: 1.5;
+    max-width: 450px;
 }
 
-/* 
-   SPONSOR PRINCIPAL - ONE CLUB
- */
-
-.main-sponsor {
-    position: relative;
-    width: 100%;
-    max-width: 700px;
-    height: 350px;
-
-    margin: 0 auto 35px;
-    padding: 0;
-
-    background: #111;
-    border: 2px solid #ff7518;
-    border-radius: 18px;
-
-    overflow: hidden;
-    transition: 0.3s ease;
+.social-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 28px;
 }
 
-/* IMAGINE ONE CLUB */
-
-.main-sponsor img {
-    display: block;
-
-    width: 100%;
-    height: 100%;
-
-    max-width: none;
-    max-height: none;
-
-    object-fit: cover;
-    object-position: center;
-
-    margin: 0;
-    padding: 0;
-
-    transition: transform 0.3s ease;
-}
-
-/* TITLU SPONSOR PRINCIPAL */
-
-.main-sponsor h3 {
-    position: absolute;
-    top: 18px;
-    left: 50%;
-
-    transform: translateX(-50%);
-    z-index: 2;
-
-    margin: 0;
-    padding: 10px 20px;
-
-    width: max-content;
-    max-width: 90%;
-
-    background: rgba(0, 0, 0, 0.8);
-    color: #ff7518;
-
-    border-radius: 8px;
-
-    font-size: 16px;
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    width: 300px;
+    padding: 13px 20px;
+    border: 2px solid white;
+    border-radius: 40px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
     font-weight: bold;
-    letter-spacing: 3px;
+    transition: 0.3s;
+    box-sizing: border-box;
 }
 
-/* HOVER ONE CLUB */
-
-.main-sponsor:hover {
-    border-color: #ff9a45;
-
-    box-shadow:
-        0 0 30px rgba(255, 117, 24, 0.25);
+.social-btn span {
+    font-size: 27px;
+    font-weight: bold;
 }
 
-.main-sponsor:hover img {
-    transform: scale(1.04);
+.social-btn:hover {
+    background-color: white;
+    color: black;
+    transform: translateX(5px);
 }
 
-/* 
-   RESTUL SPONSORILOR
- */
-
-.sponsors-grid {
-    display: grid;
-
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-
-    gap: 20px;
-
-    width: 100%;
-    max-width: 1150px;
-
-    margin: 0 auto;
+.footer-contact {
+    width: 45%;
+    border-left: 2px solid #c52a16;
+    padding-left: 70px;
 }
 
-/* CARD SPONSOR */
-
-.sponsor-card {
-    position: relative;
-
-    width: 100%;
-    height: 210px;
-
-    margin: 0;
-    padding: 0;
-
-    background: #171717;
-
-    border: 1px solid #333;
-    border-radius: 15px;
-
-    overflow: hidden;
-
-    transition: 0.3s ease;
+.footer-contact p {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 18px;
+    margin-top: 25px;
 }
 
-/* IMAGINEA ACOPERA TOT CARDUL */
-
-.sponsor-card img {
-    display: block;
-
-    width: 100%;
-    height: 100%;
-
-    max-width: none;
-    max-height: none;
-
-    object-fit: cover;
-    object-position: center;
-
-    margin: 0;
-    padding: 0;
-
-    transition: transform 0.3s ease;
+.footer-contact a {
+    color: white;
+    text-decoration: none;
 }
 
-/* EFECT HOVER */
-
-.sponsor-card:hover {
-    transform: translateY(-6px);
-
-    border-color: #ff7518;
-
-    box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.5),
-        0 0 20px rgba(255, 117, 24, 0.15);
+.footer-contact a:hover {
+    color: #ff4b20;
 }
 
-.sponsor-card:hover img {
-    transform: scale(1.04);
+.email-icon {
+    font-size: 30px;
 }
 
+.footer-bottom {
+    border-top: 2px solid #a92713;
+    text-align: center;
+    padding-top: 18px;
+    color: #c5c5c5;
+    font-size: 16px;
+}
 
+/* ===== RESPONSIVE (toate la final, de la mare la mic) ===== */
 
-/*
-   RESPONSIVE - TELEFON
- */
+@media (max-width: 950px) {
+    .nav-interior {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .linkuri {
+        order: 3;
+        width: 100%;
+        gap: 15px;
+    }
+
+    .despre {
+        gap: 30px;
+        padding: 65px 5%;
+    }
+
+    .despre h2 {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 900px) {
+    .registration-continut-flex {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .registration-stanga,
+    .registration-dreapta {
+        width: 100%;
+    }
+}
+
+@media (max-width: 750px) {
+    .despre {
+        flex-direction: column;
+        padding: 60px 25px;
+        gap: 35px;
+    }
+
+    .despre-text,
+    .despre-imagine,
+    .imgeven {
+        width: 100%;
+    }
+
+    .despre h2 {
+        font-size: 30px;
+    }
+
+    .despre p {
+        font-size: 14px;
+    }
+
+    .imgeven img {
+        height: 150px;
+    }
+
+    .imgeven img:first-child {
+        height: 210px;
+    }
+
+    .butoane-banner {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        margin: 0 auto;
+        padding: 20px 0;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 700px) {
+    .footer-title {
+        font-size: 35px;
+        margin-bottom: 35px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 35px;
+    }
+
+    .footer-about,
+    .footer-contact {
+        width: 100%;
+    }
+
+    .footer-contact {
+        border-left: none;
+        border-top: 2px solid #c52a16;
+        padding-left: 0;
+        padding-top: 25px;
+    }
+
+    .social-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .footer-contact p {
+        font-size: 15px;
+    }
+}
 
 @media (max-width: 500px) {
+    .nav-interior {
+        padding: 12px;
+        gap: 15px;
+    }
+
+    .linkuri {
+        gap: 10px 15px;
+    }
+
+    .linkuri a {
+        font-size: 10px;
+    }
+
+    #buton-sus {
+        width: 55px;
+        height: 55px;
+        bottom: 15px;
+        right: 15px;
+    }
 
     .sponsors-section {
         padding: 60px 15px;
@@ -1188,5 +1185,254 @@ header::after {
     .sponsor-card {
         height: 125px;
         border-radius: 10px;
+    }
+
+    .contact-section .section-title {
+        font-size: 32px;
+    }
+
+    .contact-description {
+        font-size: 15px;
+    }
+
+    .contact-button {
+        min-width: 145px;
+        padding: 14px;
+        font-size: 16px;
+    }
+
+    .contact-button i {
+        font-size: 20px;
+    }
+}
+
+/* ==========================================================
+   RESPONSIVE EXTRA - toate dispozitivele
+   (lasă acest bloc la finalul fișierului)
+   ========================================================== */
+
+/* Evită scroll orizontal și imagini care ies din ecran */
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* ----- Ecrane foarte mari (monitoare mari, TV) ----- */
+@media (min-width: 1600px) {
+    .despre,
+    .registration-section {
+        padding-left: 12%;
+        padding-right: 12%;
+    }
+
+    .despre h2 {
+        font-size: 44px;
+    }
+
+    .despre p {
+        font-size: 18px;
+    }
+
+    .echipa-grid {
+        max-width: 1400px;
+    }
+
+    .sponsors-grid {
+        max-width: 1300px;
+    }
+}
+
+/* ----- Laptop mic / tabletă pe orizontală ----- */
+@media (max-width: 1100px) {
+    .linkuri {
+        gap: 16px;
+    }
+
+    .sponsors-grid {
+        gap: 15px;
+    }
+
+    .sponsor-card {
+        height: 180px;
+    }
+}
+
+/* ----- Tabletă ----- */
+@media (max-width: 900px) {
+    .galerie-simplu img,
+    .galerie-centru img {
+        width: 100%;
+        max-width: 550px;
+        height: 300px;
+    }
+
+    .main-sponsor {
+        height: 300px;
+    }
+
+    .footer-content {
+        gap: 50px;
+    }
+
+    .footer-contact {
+        padding-left: 40px;
+    }
+}
+
+/* ----- Telefon (portret) ----- */
+@media (max-width: 600px) {
+    .despre {
+        padding: 50px 20px;
+        min-height: auto;
+    }
+
+    .despre h2 {
+        font-size: 26px;
+    }
+
+    .despre h3 {
+        font-size: 12px;
+    }
+
+    .mesaj-final {
+        font-size: 14px;
+    }
+
+    /* Butoanele din banner, unul sub altul, pe toată lățimea */
+    .butoane-banner {
+        flex-direction: column;
+        align-items: stretch;
+        width: 90%;
+        gap: 10px;
+    }
+
+    /* Echipa: 2 carduri pe rând */
+    .echipa,
+    .galerie {
+        padding: 55px 15px;
+    }
+
+    .echipa-titlu h2,
+    .galerie-continut h2 {
+        font-size: 1.5rem;
+    }
+
+    .echipa-grid {
+        gap: 12px;
+    }
+
+    .card-membru {
+        width: calc(50% - 6px);
+        padding: 8px;
+    }
+
+    .card-membru img,
+    .cadru-leo,
+    .cadru-luca {
+        height: 160px;
+    }
+
+    .card-membru h4 {
+        font-size: 0.9rem;
+    }
+
+    /* Galerie */
+    .galerie-simplu img,
+    .galerie-centru img {
+        height: 220px;
+    }
+
+    /* Formular */
+    .registration-section {
+        padding: 55px 15px;
+    }
+
+    .registration-stanga h2 {
+        font-size: 26px;
+    }
+
+    #registration-form {
+        padding: 20px;
+    }
+
+    /* 16px previne zoom-ul automat pe iPhone la focus */
+    #registration-form input[type="text"],
+    #registration-form input[type="email"] {
+        font-size: 16px;
+    }
+
+    .linie-separatoare {
+        margin: 25px auto;
+    }
+
+    .footer {
+        padding: 35px 20px 15px;
+    }
+}
+
+/* ----- Telefoane foarte mici (sub 360px) ----- */
+@media (max-width: 360px) {
+    .logo {
+        font-size: 19px;
+        letter-spacing: 1px;
+    }
+
+    .linkuri a {
+        font-size: 9px;
+    }
+
+    .despre h2 {
+        font-size: 23px;
+    }
+
+    .card-membru img,
+    .cadru-leo,
+    .cadru-luca {
+        height: 140px;
+    }
+
+    .contact-button {
+        min-width: 100%;
+    }
+}
+
+/* ----- Telefon pe orizontală (ecran jos) ----- */
+@media (max-height: 500px) and (orientation: landscape) {
+    nav {
+        position: static;
+    }
+
+    #buton-sus {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* ----- Ecrane tactile: fără efecte hover care "rămân blocate" ----- */
+@media (hover: none) {
+    .card-membru:hover,
+    .sponsor-card:hover,
+    .contact-button:hover,
+    .imgeven img:hover,
+    .despre-imagine img:hover,
+    .registration-dreapta img:hover,
+    #buton-sus:hover {
+        transform: none;
+    }
+}
+
+/* ----- Utilizatori care preferă mișcare redusă ----- */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    * {
+        transition: none !important;
     }
 }
