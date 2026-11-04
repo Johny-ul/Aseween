@@ -26,7 +26,7 @@ app.post('/adauga', (req, res) => {
     return res.status(400).json({ mesaj: 'Toate câmpurile sunt obligatorii!' });
   }
 
-  // 2. Normalizare email (fără spații libere și doar cu litere mici)
+  // 2. Normalizare email (fără spații libere și doar litere mici)
   const emailCurat = email.trim().toLowerCase();
 
   // 3. Validare format email
@@ -43,7 +43,6 @@ app.post('/adauga', (req, res) => {
     }
 
     if (row) {
-      // Email-ul a fost găsit în baza de date!
       return res.status(400).json({ mesaj: 'Această adresă de email este deja înregistrată!' });
     }
 
@@ -55,13 +54,13 @@ app.post('/adauga', (req, res) => {
         return res.status(500).json({ mesaj: 'Eroare la salvarea în baza de date.' });
       }
 
-      console.log(`Utilizator salvat cu ID-ul: ${this.lastID}`);
+      console.log(`Utilizator salvat cu succes (ID: ${this.lastID}). Evenimente: ${evenimente}`);
       res.status(200).json({ mesaj: 'Înscrierea a fost salvată cu succes!' });
     });
   });
 });
 
-// Ruta GET pentru verificare date în JSON
+// Ruta GET pentru verificare date în format JSON
 app.get('/utilizatori', (req, res) => {
   db.all(`SELECT * FROM inscrieri`, [], (err, rows) => {
     if (err) {
