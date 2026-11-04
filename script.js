@@ -44,28 +44,29 @@ document.getElementById('registration-form').addEventListener('submit', async fu
 };
 
   try {
-  const response = await fetch('https://formspree.io/f/xxxxxxxx', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    },
-    body: JSON.stringify(dateFormular)
-  });
+    const response = await fetch('http://localhost:3000/adauga', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(dateFormular)
+    });
 
-  if (response.ok) {
-    alert('Înregistrare reușită!');
-    document.getElementById('registration-form').reset();
-  } else {
-    alert('Eroare la trimitere. Încearcă din nou mai târziu.');
+    const rezultat = await response.json();
+
+    if (response.ok) {
+      alert('Înregistrare reușită!');
+      document.getElementById('registration-form').reset();
+    } else {
+      alert('Eroare: ' + rezultat.mesaj);
+    }
+  } catch (error) {
+    console.error('Eroare de rețea:', error);
+    alert('Nu s-a putut conecta la server. Verifică dacă server.js rulează!');
+  } finally {
+    if (btnSubmit) {
+      btnSubmit.disabled = false;
+      btnSubmit.innerText = textOriginalBtn;
+    }
   }
-} catch (error) {
-  console.error('Eroare de rețea:', error);
-  alert('Nu s-a putut trimite înscrierea. Verifică conexiunea la internet.');
-} finally {
-  if (btnSubmit) {
-    btnSubmit.disabled = false;
-    btnSubmit.innerText = textOriginalBtn;
-  }
-}
 });
