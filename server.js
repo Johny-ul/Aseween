@@ -8,7 +8,7 @@ const port = 3000;
 app.use(cors());
 app.use(express.json());
 
-// Conectare la baza de date SQLite
+
 const db = new sqlite3.Database('./baza_de_date.db', (err) => {
   if (err) {
     console.error('Eroare conectare DB:', err.message);
@@ -17,7 +17,7 @@ const db = new sqlite3.Database('./baza_de_date.db', (err) => {
   }
 });
 
-// Creează tabelul dacă nu există (poți șterge dacă îl ai deja)
+
 db.run(`CREATE TABLE IF NOT EXISTS inscrieri (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   nume TEXT NOT NULL,
@@ -25,14 +25,14 @@ db.run(`CREATE TABLE IF NOT EXISTS inscrieri (
   evenimente TEXT NOT NULL
 )`);
 
-// Ruta POST: salvează înscrierea cu verificare de duplicat
+
 app.post('/adauga', (req, res) => {
   console.log('Primit:', req.body);
 
   const { nume, email } = req.body;
   let { evenimente } = req.body;
 
-  // Acceptă atât array, cât și string
+  
   if (Array.isArray(evenimente)) {
     evenimente = evenimente.join(', ');
   } else if (typeof evenimente === 'string') {
@@ -50,7 +50,7 @@ app.post('/adauga', (req, res) => {
 
   const emailCurat = String(email).trim().toLowerCase();
 
-  // Verificare duplicat (insensibil la litere mari/mici)
+  
   db.get(`SELECT id FROM inscrieri WHERE LOWER(email) = ?`, [emailCurat], (err, row) => {
     if (err) {
       console.error('Eroare la căutare email:', err.message);
@@ -61,7 +61,7 @@ app.post('/adauga', (req, res) => {
       return res.status(400).json({ mesaj: 'Această adresă de email este deja înregistrată!' });
     }
 
-    // Inserare utilizator nou
+   
     const query = `INSERT INTO inscrieri (nume, email, evenimente) VALUES (?, ?, ?)`;
     db.run(query, [String(nume).trim(), emailCurat, evenimente], function (err) {
       if (err) {
@@ -75,7 +75,7 @@ app.post('/adauga', (req, res) => {
   });
 });
 
-// Ruta GET pentru verificarea datelor în format JSON
+
 app.get('/utilizatori', (req, res) => {
   db.all(`SELECT * FROM inscrieri`, [], (err, rows) => {
     if (err) {

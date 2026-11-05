@@ -5,30 +5,30 @@ document.getElementById('registration-form').addEventListener('submit', async fu
   const nume = document.getElementById('nume').value.trim();
   const email = document.getElementById('email').value.trim();
 
-  // Preluăm toate casetele bifate care au atributul name="evenimente"
+  
   const caseteBifate = document.querySelectorAll('input[name="evenimente"]:checked');
   const evenimenteBifate = Array.from(caseteBifate).map(cb => cb.value);
 
-  // Validare 1: Nume completat
+  
   if (!nume) {
     alert('Te rugăm să introduci numele complet.');
     return;
   }
 
-  // Validare 2: Format email valid
+  
   const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!regexEmail.test(email)) {
     alert('Te rugăm să introduci o adresă de email validă.');
     return;
   }
 
-  // Validare 3: Cel puțin un eveniment selectat
+  
   if (evenimenteBifate.length === 0) {
     alert('Te rugăm să selectezi cel puțin un eveniment!');
     return;
   }
 
-  // Feedback vizual pe buton pe durata cererii
+  
   const btnSubmit = e.target.querySelector('button[type="submit"]');
   const textOriginalBtn = btnSubmit ? btnSubmit.innerText : 'TRIMITE ÎNSCRIEREA';
 
